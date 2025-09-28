@@ -1,6 +1,6 @@
-<!-- ReactJs -->
+1. ReactJs
 
-<!-- NodeJs -->
+2. NodeJs
 Q.1 Difference b/w http and https
 Ans :-
     .Http  :- stands for hypertext transfer protocol
@@ -12,12 +12,11 @@ Q. we have ssl incoming connection where do you terminate it in terms of your cl
 
 
 
-<!-- JavaScript  -->
+3. JavaScript 
 
-<!-- MongoDB -->
+4. MongoDB
 
-<!-- Docker -->
+5. Docker
 
-<!-- Devops -->
+6. Devops
 
-<!--  -->
