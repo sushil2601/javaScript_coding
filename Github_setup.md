@@ -43,3 +43,26 @@ step6 :-
         .Pull Latest Changes (Optional)
 
         .git pull origin main
+
+<!-- Push code to github -->
+
+Steps :-
+    .Install Git (check git --version)
+
+    .Configure Git (first time only)
+        .git config --global user.name "Your Name"
+        .git config --global user.email "youremail@example.com"
+
+    .Open Project in VS Code
+    .Initialize Git
+        .git init
+    .Create a Repository on GitHub
+    .Add and Commit Code
+        .git add .
+        .git commit -m "First commit"
+    .Push Code to GitHub
+        .git branch -M main
+        .git remote add origin https://github.com/username/my-project.git
+        .git push -u origin main
+
+
