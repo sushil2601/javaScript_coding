@@ -295,3 +295,108 @@ function intersectionOfArray(aar1,arr2){
 
 console.log(intersectionOfArray(arr1,arr2))
 
+Q.7 Arrange positive and negative number
+
+const arr = [1,2,-1,3,-2,4,6,-5,8,-4,-3,7,10,-6,-8]
+
+function arrPosNeg(arr){
+
+    const pos = [];
+    const neg = [];
+
+    //M-1
+
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]<0){
+            neg.push(arr[i])
+        }else{
+            pos.push(arr[i])
+        }
+    }
+
+    const result = [...pos,...neg]
+
+    return {pos,neg}
+    return result
+
+    //M-2
+
+    arr.filter((ele)=>{
+        if(ele<0){
+            neg.push(ele)
+        }else{
+            pos.push(ele)
+        }
+    })
+
+    const result = [...pos,...neg]
+    return result
+}
+
+console.log(arrPosNeg(arr))
+
+Q.8 Alternate positive and negative number
+
+//M-1
+
+function alternatePosNeg(arr){
+
+    const result = [];
+    const pos = [];
+    const neg = [];
+
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]>0){
+            pos.push(arr[i])
+        }
+
+        if(arr[i]<0){
+            neg.push(arr[i])
+        }
+    }
+
+    const maxLength = Math.max(pos.length,neg.length)
+
+    for(let i=0;i<maxLength;i++){
+        if(i<pos.length){
+            result.push(pos[i])
+        }
+
+        if(i<neg.length){
+            result.push(neg[i])
+        }
+    }
+
+    // return {pos,neg}
+    return result;
+
+
+}
+console.log(alternatePosNeg(arr))
+
+
+//M-2
+
+function altPosNeg(arr){
+
+    const { pos, neg } = arr.reduce((acc, curVal) => {
+        if (curVal > 0) {
+            acc.pos.push(curVal);
+        } else if (curVal < 0) {
+            acc.neg.push(curVal);
+        }
+        return acc; // important: return the accumulator
+    }, { pos: [], neg: [] });
+
+    console.log({ pos, neg });
+
+    return pos.reduce((acc, cur, i) => {
+        acc.push(cur);
+        if (i < neg.length) acc.push(neg[i]);
+        return acc;
+    }, []);
+
+
+}
+
+console.log(altPosNeg(arr))
