@@ -453,9 +453,151 @@
 
 // console.log(altPosNeg(arr))
 
-//similarly we will implement the zero scenario.
+// Q.9 move all zeros in an array to the end.
 
-// Q.9 
+// const arr = [1,0,2,3,0,4,2,5,0,0,0,6,7,8]
+
+// function moveAllZeroToEnd(arr){
+
+//     const non_zero = [];
+//     const zero = [];
+
+//     //M-1
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i]===0){
+//             zero.push(arr[i])
+//         }else{
+//             non_zero.push(arr[i])
+//         }
+//     }
+
+//     const result = [...non_zero,...zero]
+
+//     return result
+
+//     //M-2
+
+//     arr.filter((ele)=>{
+//         if(ele===0){
+//             zero.push(ele)
+//         }else{
+//             non_zero.push(ele)
+//         }
+//     })
+
+//     //const result = [...non_zero,zero]  //[ 1, 2, 3, 4, 2, 5, 6, 7, 8, [ 0, 0, 0, 0, 0 ] ]
+//     const result = [...non_zero,...zero]
+//     return result
+
+//     //M-3
+
+//     const {non_zero,zero} = arr.reduce((acc,cur)=>{
+//         if(cur === 0){
+//             acc.zero.push(cur)
+//         }else{
+//             acc.non_zero.push(cur)
+//         }
+//         return acc
+//     },{non_zero :[],zero:[]})
+
+//     const result = [...non_zero,...zero]
+//     return result
+// }
+
+// console.log(moveAllZeroToEnd(arr))
+
+// const arr = [1,0,2,3,0,4,2,5,0,0,0,6,7,8]
+
+// function altZeroandNumber(arr){
+
+//     //M-1
+
+//     const zero = [];
+//     const non_zero = [];
+//     const result = [];
+
+//     for(let i=0;i<arr.length;i++){
+//         if(arr[i] === 0){
+//             zero.push(arr[i])
+//         }else{
+//             non_zero.push(arr[i])
+//         }
+//     }
+
+//     for(let j=0;j<Math.max(zero.length,non_zero.length);j++){
+//         if(j<non_zero.length){
+//             result.push(non_zero[j])
+//         }
+
+//         if(j<zero.length){
+//             result.push(zero[j])
+//         }
+//     }
+
+//     return result;
+
+//     //M-2
+
+//     arr.filter((ele)=>{
+//         if(ele === 0){
+//             zero.push(ele)
+//         }else{
+//             non_zero.push(ele)
+//         }
+//     })
+
+//    return non_zero.reduce((acc,cur,i)=>{
+//         acc.push(cur)
+//         if(i<zero.length){
+//             acc.push(zero[i])
+//         }
+
+//         return acc
+//    },[])
+// }
+
+// console.log(altZeroandNumber(arr))
+
+//Q.10 Given an array of integers, return the two numbers that add upto a target(two-sub problem)
+
+// const arr = [1,2,3,4,5,6,7,8,9];
+
+// //target : 9 
+// //o/p  : [1,8],[2,7],[3,6],[4,5]
+
+// function targetTwoNub(arr,target){
+
+//     for(let  i=0;i<arr.length;i++){
+//         for(let j=i+1;j<arr.length;j++){
+//             if(arr[i]+arr[j] === target){
+//                 return [arr[i],arr[j]]
+//                 return [i,j]
+//             }
+//         }
+//     }
+// }
+
+// console.log(targetTwoNub(arr,9))
+
+// function returnAllPair(arr,target){
+
+//     let result = [];
+
+//     for(let i=0;i<arr.length;i++){
+//         for(let j=i+1;j<arr.length;j++){
+//             if(arr[i]+arr[j]===target){
+//                 result.push([arr[i],arr[j]])
+//             }
+//         }
+//     }
+
+//     return result
+
+// }
+
+// console.log(returnAllPair(arr,9))
+
+//Q.11 
 
 /**
  * 

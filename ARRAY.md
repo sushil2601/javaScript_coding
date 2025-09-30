@@ -1,4 +1,4 @@
-Q.1 Find Rank 
+## Q.1 Find Rank 
 
 const arr = [1,2,3,4,5,6,7,8]
 
@@ -30,7 +30,7 @@ function findRank(arr,n1,n2){
 console.log(findRank(arr,3,7))
 console.log(findRank(arr,7,3))
 
-Q.2 swap element in array
+## Q.2 swap element in array
 
 const arr = [1,2,3,4,5,6,7,8]
 
@@ -59,7 +59,7 @@ function swapElement(arr,n1,n2){
 console.log(swapElement(arr,3,7))
 console.log(swapElement(arr,4,8))
 
-Q.3 find index of element
+## Q.3 find index of element
 
 const arr = [10,20,30,40,50,60]
 
@@ -78,7 +78,7 @@ function findIndex(arr,target){
 
 console.log(findIndex(arr,50))
 
-Q.4 
+## Q.4 
 
 I/P = [10,20,22,10,20,27,35,15,35]
 O/P = [10,20,35]
@@ -155,7 +155,7 @@ function findRepeatedNumber(arr){
 findRepeatedNumber(arr)
 console.log(findRepeatedNumber(arr))
 
-Q.5 Flatten Array
+## Q.5 Flatten Array
 const arr = [1,2,[3,4,[5,6,7]],8,9,[10,[11]],[[12]]]
 
 function flattenArray(arr){
@@ -206,7 +206,7 @@ const flat_again = [].concat(...flat)
 
 console.log(flat_again)
 
-Q.6 Union & Intersection
+## Q.6 Union & Intersection
 
     union        :- All unique element from both
     intersection :- only common element from both
@@ -295,7 +295,7 @@ function intersectionOfArray(aar1,arr2){
 
 console.log(intersectionOfArray(arr1,arr2))
 
-Q.7 Arrange positive and negative number
+## Q.7 Arrange positive and negative number
 
 const arr = [1,2,-1,3,-2,4,6,-5,8,-4,-3,7,10,-6,-8]
 
@@ -335,7 +335,7 @@ function arrPosNeg(arr){
 
 console.log(arrPosNeg(arr))
 
-Q.8 Alternate positive and negative number
+## Q.8 Alternate positive and negative number
 
 //M-1
 
@@ -400,3 +400,210 @@ function altPosNeg(arr){
 }
 
 console.log(altPosNeg(arr))
+
+## Q.9 Mover all zeros at the end
+
+const arr = [1,0,2,3,0,4,2,5,0,0,0,6,7,8]
+
+function moveAllZeroToEnd(arr){
+
+    const non_zero = [];
+    const zero = [];
+
+    //M-1
+    for(let i=0;i<arr.length;i++){
+        if(arr[i]===0){
+            zero.push(arr[i])
+        }else{
+            non_zero.push(arr[i])
+        }
+    }
+
+    const result = [...non_zero,...zero]
+
+    return result
+
+    //M-2
+
+    arr.filter((ele)=>{
+        if(ele===0){
+            zero.push(ele)
+        }else{
+            non_zero.push(ele)
+        }
+    })
+
+    //const result = [...non_zero,zero]  //[ 1, 2, 3, 4, 2, 5, 6, 7, 8, [ 0, 0, 0, 0, 0 ] ]
+    const result = [...non_zero,...zero]
+    return result
+
+    //M-3
+
+    const {non_zero,zero} = arr.reduce((acc,cur)=>{
+        if(cur === 0){
+            acc.zero.push(cur)
+        }else{
+            acc.non_zero.push(cur)
+        }
+        return acc
+    },{non_zero :[],zero:[]})
+
+    const result = [...non_zero,...zero]
+    return result
+}
+
+console.log(moveAllZeroToEnd(arr))
+
+
+## Q.10 Alternate non_zero and zero 
+
+Ans :-
+    const arr = [1,0,2,3,0,4,2,5,0,0,0,6,7,8]
+
+function altZeroandNumber(arr){
+
+    //M-1
+
+    const zero = [];
+    const non_zero = [];
+    const result = [];
+
+    for(let i=0;i<arr.length;i++){
+        if(arr[i] === 0){
+            zero.push(arr[i])
+        }else{
+            non_zero.push(arr[i])
+        }
+    }
+
+    for(let j=0;j<Math.max(zero.length,non_zero.length);j++){
+        if(j<non_zero.length){
+            result.push(non_zero[j])
+        }
+
+        if(j<zero.length){
+            result.push(zero[j])
+        }
+    }
+
+    return result;
+
+    //M-2
+
+    arr.filter((ele)=>{
+        if(ele === 0){
+            zero.push(ele)
+        }else{
+            non_zero.push(ele)
+        }
+    })
+
+   return non_zero.reduce((acc,cur,i)=>{
+        acc.push(cur)
+        if(i<zero.length){
+            acc.push(zero[i])
+        }
+
+        return acc
+   },[])
+}
+
+console.log(altZeroandNumber(arr))
+
+## Q.11 Given an array of integers, return the two numbers that add upto a target(two-sub problem).
+
+const arr = [1,2,3,4,5,6,7,8,9];
+
+//target : 9 
+//o/p  : [1,8],[2,7],[3,6],[4,5]
+
+function targetTwoNub(arr,target){
+
+    for(let  i=0;i<arr.length;i++){
+        for(let j=i+1;j<arr.length;j++){
+            if(arr[i]+arr[j] === target){
+                return [arr[i],arr[j]]
+                return [i,j]
+            }
+        }
+    }
+}
+
+console.log(targetTwoNub(arr,9))
+
+function returnAllPair(arr,target){
+
+    let result = [];
+
+    for(let i=0;i<arr.length;i++){
+        for(let j=i+1;j<arr.length;j++){
+            if(arr[i]+arr[j]===target){
+                result.push([arr[i],arr[j]])
+            }
+        }
+    }
+
+    return result
+
+}
+
+console.log(returnAllPair(arr,9))
+
+## Q.12 find the first non-repeating elements in array.
+
+## Q.13 find the first repeating elements in array.
+
+## Q.14 find missing number.
+
+## Q.15 find missing number from a range.
+
+## Q.16 find all prime number in an array.
+
+## Q.17 find nth largest number and remove first largest. Finding the second smallest element in an array
+
+## Q.18 find first three largest number.
+
+## Q.19 Remove duplicates without using set method.
+
+## Q.20 Split [1,2,3,4,5] into [[1,2],[3,4],[5]]
+
+## Q.21 Reverse an array without using reverse :- 1. simple reverse  2. in place reverse
+
+## Q.22 Currying fn for infinite sum
+
+## Q.23 Remove falsy value from array ex:- [0,null,undefined,'',5]
+
+## Q.24 Factorial of a number
+
+## Q.25 Fibonacci series
+
+## Q.26 Palindrome, Armstrong, Reverse a number, perfect number, GCD & LCD, Prime factor.
+
+## Q.27 Print all prime numbers in a given range. Find All Prime Numbers up to Nth.
+
+## Q.28 Find the sum of first 'N' natural numbers.
+
+## Q.29 Flatten deep Object+Arrays.
+
+## Q.30 Polyfill : 1.call, 2.apply, 3.bind, 4.forEach, 5.map
+
+## Q.31 Convert Number to Roman Numerals.
+
+## Q.32 Merge Arrays of Objects by id.
+
+###### DSA ######
+## Q.1 Find the longest increasing subsequence in an array.
+
+## Q.2 Rotate an array by k steps(both left and right rotation).
+
+## Q.3 Maxm subarray -> find the contiguous subarray with the largest sum.
+
+## Q.4 Subarray with given sum -> find if there exits a subarray with a sum equal to k.
+
+## Q.5 Tripplet sum -> find all unique tripllets that sum to zero(3-sum problem).
+
+## Q.6 Find the element that appears more than n/2 times in an array.
+
+## Q.7 for each element, find the next greater element on the right side.
+
+## Q.8 
