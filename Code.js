@@ -597,7 +597,299 @@
 
 // console.log(returnAllPair(arr,9))
 
-//Q.11 
+//Q.11 find the first non-repeating elements in array
+
+// const arr = [1,2,3,4,1,5,2,3,10,8,9,10,11]
+
+// function firstNonRepeat(arr){
+
+//     let freq = {}; 
+
+//     for(let item of arr){
+//         freq[item] = (freq[item] || 0) +1
+//     }
+
+//     let result  = [];
+
+//     for(let num in freq){
+//         if(freq[num] === 1){
+//             // return num    //first non-repeating number
+//             result.push(num) //All non-repeating number
+//         }
+        
+//     }
+
+//     return result
+
+// }
+
+// console.log(firstNonRepeat(arr))
+
+//Q. find the first repeating elements in array.
+
+// const arr = [1,2,3,4,2,1,5,2,3,10,8,9,10,11]
+
+// function firstRepeatNum(arr){
+
+//     let seen = new Set();
+
+//     for(let item of arr){
+//         if(seen.has(item)){
+//             return item
+//         }
+//         seen.add(item)
+//     }
+//     return null;
+// }
+
+// console.log(firstRepeatNum(arr))
+
+//Q find missing number.
+
+// const arr = [1,3,5,9,11]
+
+// function missingNumber(arr){
+
+//     const sum1 = arr.reduce((acc,curVal)=>{
+//         return acc = acc+curVal;
+//     },0)
+
+//     let min = Math.min(...arr)
+//     let max = Math.max(...arr)
+
+//     let sum2 =0;
+
+//     for(let i=min;i<=max;i++){
+//         if(i%2 !==0){
+//             sum2 = sum2+i
+//         }
+//     }
+
+//     const result = sum2-sum1
+//     return result
+
+// }
+
+// console.log(missingNumber(arr))
+
+//Q. find missing number from a range.
+
+// const arr = [1,2,4,6]
+
+// function missingFromRange(arr){
+
+//     let result = [];
+
+//     let min = Math.min(...arr)
+//     let max = Math.max(...arr)
+
+//     for(let i=min;i<=max;i++){
+//         if(!arr.includes(i)){
+//             result.push(i)
+//         }
+//     }
+//     return result;
+
+// }
+
+// console.log(missingFromRange(arr))
+
+// const arr = [1,3,7,11,15,17,21]
+// const arr1 = [2,6,10,12,16,18,22]
+
+// function findMissingFromRange(arr1){
+
+//     let result = [];
+
+//     let min = Math.min(...arr1)
+//     let max = Math.max(...arr1)
+
+//     for(let i=min;i<=max;i++){
+//         if(i%2 ===0 && !arr1.includes(i)){
+//             result.push(i)
+//         }
+//     }
+
+//     return result
+// }
+
+// console.log(findMissingFromRange(arr1))
+
+//Q. find Nth largest number
+
+// const arr = [45, 12, 89, 33, 7, 56, 90, 21, 67, 38];
+
+// function findNthLargestNum(arr,n){
+
+//     const sortedArr = arr.sort((a,b)=>b-a)
+
+//     console.log(sortedArr)
+
+//     return sortedArr[n-1]
+// }
+
+// console.log(findNthLargestNum(arr,3))
+
+// Find 2nd largest number and remove 1st largest number.
+
+// function find(arr,n){
+
+//     const arr2 = arr.sort((a,b)=>b-a);
+
+//     const arr3 = [...arr2]
+
+//     const result1 = arr3.splice(0,1)
+//     const result2 = arr2[n-1]
+
+//     return {firLargest : result1,secLargest : result2,arr3}
+// }
+
+// console.log(find(arr,2))
+
+//find second smallest number
+
+// function NthSmallestNum(arr,n){
+
+//     const sortedArr = arr.sort((a,b)=>a-b)
+
+//     console.log(sortedArr)
+
+//     return sortedArr[n-1]
+// }
+
+// console.log(NthSmallestNum(arr,2))
+
+//find first three largest number
+
+// function firstThreeLargest(arr,n){
+
+//     const sortedArr = arr.sort((a,b)=>b-a)
+
+//     return sortedArr.slice(0,n)
+
+// }
+
+// console.log(firstThreeLargest(arr,3))
+
+//Q. Remove duplicates without using set method.
+
+// const arr = [1,2,1,3,4,2,4,7,5,9,10,15,11,12,20,1,2,4,3,0,0,0,7,5,9]
+
+// function removeDuplicate(arr){
+
+//     const newArr = [...new Set(arr)].sort((a,b)=>a-b)
+
+//     console.log(newArr)
+
+//     const result = [];
+
+//     for(let ele of arr){
+//         if(!result.includes(ele)){
+//             result.push(ele)
+//         }
+//     }
+
+//     return result.sort((a,b)=>a-b)
+
+// }
+
+// console.log(removeDuplicate(arr))
+
+//Q. Reverse an array without using reverse 
+
+// const arr = [45, 12, 89, 33, 7, 56, 90, 21, 67, 38];
+
+// function reverseArr(arr){
+
+//     const result = [];
+
+//     for(let i=arr.length-1;i>=0;i--){
+//         result.push(arr[i])
+//     }
+
+//     return result;
+
+// }
+
+// console.log(reverseArr(arr))
+
+//Q. In place reverse
+// const arr = [45, 12, 89, 33, 7, 56, 90, 21, 67, 38];
+
+// console.log(arr)
+
+// function reverseInPlace(arr){
+
+//     let j = arr.length-1
+
+//     for(let i=0;i<j;i++,j--){
+//         let temp = arr[i];
+//         arr[i] = arr[j];
+//         arr[j] = temp;
+//     }
+
+//     return arr;
+// }
+
+// console.log(reverseInPlace(arr))
+
+//Q.find avg. of array
+    // const arr = [45, 12, 89, 33, 7, 56, 90, 21, 67, 38];
+
+    // function avgOfNum(arr){
+
+    //     const sum = arr.reduce((acc,curVal)=>{
+    //         return acc = acc+curVal;
+    //     },0)
+
+    //     const avg = sum/arr.length
+
+    //     return avg;
+
+    // }
+
+    // console.log(avgOfNum(arr))
+
+//Q.Split [1,2,3,4,5] into [[1,2],[3,4],[5]]
+
+// const arr = [1,2,3,4,5];
+
+// function splitArr(arr){
+
+//     let result = [];
+
+//     for(let i=0;i<arr.length;i+=2){
+//         if(i+1<arr.length){
+//             result.push([arr[i],arr[i+1]])
+//         }else{
+//             result.push([arr[i]])
+//         }
+//     }
+
+//     return result;
+// }
+
+// console.log(splitArr(arr))
+
+// const arr = [1,2,3,4,5,6,7,8,9,10,11]
+
+// function splitArr(arr,chunkSize){
+
+//     let result = [];
+
+//     for(let i=0;i<arr.length;i+=chunkSize){
+//         result.push(arr.slice(i,i+chunkSize))
+//     }
+
+//     return result;
+// }
+
+// console.log(splitArr(arr,2))
+
+
+//Q. Currying fn for infinite sum
+
+
 
 /**
  * 
@@ -625,6 +917,6 @@
 
 /**
  * 
- * 
+ * Array of object
  * 
  */

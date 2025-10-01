@@ -550,24 +550,298 @@ function returnAllPair(arr,target){
 console.log(returnAllPair(arr,9))
 
 ## Q.12 find the first non-repeating elements in array.
+Ans :-
+    const arr = [1,2,3,4,1,5,2,3,10,8,9,10,11]
+
+function firstNonRepeat(arr){
+
+    let freq = {}; 
+
+    for(let item of arr){
+        freq[item] = (freq[item] || 0) +1
+    }
+
+    let result  = [];
+
+    for(let num in freq){
+        if(freq[num] === 1){
+            return num    //first non-repeating number
+            result.push(num) //All non-repeating number
+        }
+        
+    }
+
+    return result
+
+}
+
+console.log(firstNonRepeat(arr))
 
 ## Q.13 find the first repeating elements in array.
+Ans :- 
+    const arr = [1,2,3,4,2,1,5,2,3,10,8,9,10,11]
+
+function firstRepeatNum(arr){
+
+    let seen = new Set();
+
+    for(let item of arr){
+        if(seen.has(item)){
+            return item
+        }
+        seen.add(item)
+    }
+    return null;
+}
+
+console.log(firstRepeatNum(arr))
 
 ## Q.14 find missing number.
+Ans :-
+    const arr = [1,3,5,9,11]
 
-## Q.15 find missing number from a range.
+function missingNumber(arr){
 
-## Q.16 find all prime number in an array.
+    const sum1 = arr.reduce((acc,curVal)=>{
+        return acc = acc+curVal;
+    },0)
 
-## Q.17 find nth largest number and remove first largest. Finding the second smallest element in an array
+    let min = Math.min(...arr)
+    let max = Math.max(...arr)
+
+    let sum2 =0;
+
+    for(let i=min;i<=max;i++){
+        if(i%2 !==0){
+            sum2 = sum2+i
+        }
+    }
+
+    const result = sum2-sum1
+    return result
+
+}
+
+console.log(missingNumber(arr))
+
+## Q.15.1 find missing number from a range.
+Ans :-
+    const arr = [1,2,4,6]
+
+function missingFromRange(arr){
+
+    let result = [];
+
+    let min = Math.min(...arr)
+    let max = Math.max(...arr)
+
+    for(let i=min;i<=max;i++){
+        if(!arr.includes(i)){
+            result.push(i)
+        }
+    }
+    return result;
+
+}
+
+console.log(missingFromRange(arr))
+
+## Q.15.2 find missing from odd or even number
+Ans :-
+    const arr = [1,3,7,11,15,17,21]
+    const arr1 = [2,6,10,12,16,18,22]
+
+function findMissingFromRange(arr1){
+
+    let result = [];
+
+    let min = Math.min(...arr1)
+    let max = Math.max(...arr1)
+
+    for(let i=min;i<=max;i++){
+        if(i%2 ===0 && !arr1.includes(i)){
+            result.push(i)
+        }
+    }
+
+    return result
+}
+
+console.log(findMissingFromRange(arr1))
+
+## Q.17.1 find nth largest number
+Ans :-
+    const arr = [45, 12, 89, 33, 7, 56, 90, 21, 67, 38];
+
+function findNthLargestNum(arr,n){
+
+    const sortedArr = arr.sort((a,b)=>b-a)
+
+    console.log(sortedArr)
+
+    return sortedArr[n-1]
+}
+
+console.log(findNthLargestNum(arr,3))
+
+
+## Q.17.2 Remove first largest and find second largest number.
+Ans :-
+    function find(arr,n){
+
+    const arr2 = arr.sort((a,b)=>b-a);
+
+    const arr3 = [...arr2]
+
+    const result1 = arr3.splice(0,1)
+    const result2 = arr2[n-1]
+
+    return {firLargest : result1,secLargest : result2,arr3}
+}
+
+console.log(find(arr,2))
+
+## Q.17.3 Finding the second smallest element in an array.
+Ans :-
+    function NthSmallestNum(arr,n){
+
+    const sortedArr = arr.sort((a,b)=>a-b)
+
+    console.log(sortedArr)
+
+    return sortedArr[n-1]
+}
+
+console.log(NthSmallestNum(arr,2))
 
 ## Q.18 find first three largest number.
+Ans :-
+    function firstThreeLargest(arr,n){
 
-## Q.19 Remove duplicates without using set method.
+    const sortedArr = arr.sort((a,b)=>b-a)
 
-## Q.20 Split [1,2,3,4,5] into [[1,2],[3,4],[5]]
+    return sortedArr.slice(0,n)
 
-## Q.21 Reverse an array without using reverse :- 1. simple reverse  2. in place reverse
+}
+
+console.log(firstThreeLargest(arr,3))
+
+## Q.19.1 Remove duplicates without using set method.
+Ans :-
+    const arr = [1,2,1,3,4,2,4,7,5,9,10,15,11,12,20,1,2,4,3,0,0,0,7,5,9]
+
+function removeDuplicate(arr){
+
+    const newArr = [...new Set(arr)].sort((a,b)=>a-b)
+
+    console.log(newArr)
+
+    const result = [];
+
+    for(let ele of arr){
+        if(!result.includes(ele)){
+            result.push(ele)
+        }
+    }
+
+    return result.sort((a,b)=>a-b)
+
+}
+
+console.log(removeDuplicate(arr))
+
+## Q.19.2 Find average of the array.
+Ans :-
+    const arr = [45, 12, 89, 33, 7, 56, 90, 21, 67, 38];
+
+    function avgOfNum(arr){
+
+        const sum = arr.reduce((acc,curVal)=>{
+            return acc = acc+curVal;
+        },0)
+
+        const avg = sum/arr.length;
+
+        return avg;
+
+    }
+
+    console.log(avgOfNum(arr))
+
+## Q.20.1  Reverse an array without using reverse .
+Ans :-
+    const arr = [45, 12, 89, 33, 7, 56, 90, 21, 67, 38];
+
+function reverseArr(arr){
+
+    const result = [];
+
+    for(let i=arr.length-1;i>=0;i--){
+        result.push(arr[i])
+    }
+
+    return result;
+
+}
+
+console.log(reverseArr(arr))
+
+## Q.20.2. In place reverse.
+Ans :-
+    const arr = [45, 12, 89, 33, 7, 56, 90, 21, 67, 38];
+
+    function reverseInPlcae(arr){
+
+        let j=arr.length-1
+
+        for(let i=0;i<j;i++,j-->){
+            let temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+
+        return arr;
+    }
+
+    console.log(reverseInPlcae(arr))
+
+## Q.21 Split [1,2,3,4,5] into [[1,2],[3,4],[5]]
+Ans :-
+    const arr = [1,2,3,4,5];
+
+function splitArr(arr){
+
+    let result = [];
+
+    for(let i=0;i<arr.length;i+=2){
+        if(i+1<arr.length){
+            result.push([arr[i],arr[i+1]])
+        }else{
+            result.push([arr[i]])
+        }
+    }
+
+    return result;
+}
+
+console.log(splitArr(arr))
+
+or
+ 
+const arr = [1,2,3,4,5,6,7,8,9,10,11]
+
+function splitArr(arr,chunkSize){
+
+    let result = [];
+
+    for(let i=0;i<arr.length;i+=chunkSize){
+        result.push(arr.slice(i,i+chunkSize))
+    }
+
+    return result;
+}
+
+console.log(splitArr(arr,2))
 
 ## Q.22 Currying fn for infinite sum
 
@@ -579,11 +853,15 @@ console.log(returnAllPair(arr,9))
 
 ## Q.26 Palindrome, Armstrong, Reverse a number, perfect number, GCD & LCD, Prime factor.
 
+## Q.16 find all prime number in an array.
+
 ## Q.27 Print all prime numbers in a given range. Find All Prime Numbers up to Nth.
 
 ## Q.28 Find the sum of first 'N' natural numbers.
 
-## Q.29 Flatten deep Object+Arrays.
+## Q.29 Flatten deep Object+Arrays. 
+
+Ex:- {a:{b:[1,2]}} -> {"a.b.0" : 1,"a.b.1" : 2}
 
 ## Q.30 Polyfill : 1.call, 2.apply, 3.bind, 4.forEach, 5.map
 
@@ -606,4 +884,65 @@ console.log(returnAllPair(arr,9))
 
 ## Q.7 for each element, find the next greater element on the right side.
 
-## Q.8 
+## Array Of Object ##
+
+const employees = [
+  { id: 1, name: "Sushil", salary: 50000 },
+  { id: 2, name: "Amit", salary: 60000 },
+  { id: 3, name: "Priya", salary: 75000 },
+  { id: 4, name: "Ravi", salary: 55000 },
+  { id: 5, name: "Neha", salary: 80000 }
+];
+
+# Find the employee with the highest salary.
+
+# Find the employee with the lowest salary.
+
+# Filter all employees whose salary is greater than 60,000.
+
+# Get only the names of all employees.
+
+# Sort employees by salary (ascending & descending).
+
+# Calculate the total salary of all employees.
+
+# Find the average salary.
+
+# Check if an employee with id = 3 exists.
+
+# Increase everyone’s salary by 10%.
+
+# Return employees whose name starts with “S”.
+
+const students = [
+  { id: 1, name: "Sushil", marks: 85 },
+  { id: 2, name: "Amit", marks: 92 },
+  { id: 3, name: "Priya", marks: 76 },
+  { id: 4, name: "Ravi", marks: 65 },
+  { id: 5, name: "Neha", marks: 88 },
+  { id: 6, name: "Karan", marks: 55 },
+  { id: 7, name: "Meena", marks: 95 },
+  { id: 8, name: "Arjun", marks: 70 },
+  { id: 9, name: "Rohit", marks: 82 },
+  { id: 10, name: "Simran", marks: 60 }
+];
+
+# Find the student with the highest marks.
+
+# Find the student with the lowest marks.
+
+# Get the list of students who scored more than 80.
+
+# Count how many students scored less than 60.
+
+# Sort students by marks (highest → lowest).
+
+# Calculate the average marks of all students.
+
+# Get only the names of students who passed (marks ≥ 40).
+
+# Find the top 3 rankers.
+
+# Check if a student with id = 5 exists.
+
+# Increase everyone’s marks by 5 bonus points.
