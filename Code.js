@@ -889,7 +889,404 @@
 
 //Q. Currying fn for infinite sum
 
+// function sum(x){
+//     let acc = x??0;
 
+//     function inner(y){
+//         if(y===undefined) return acc;
+//         acc+=y
+//         return inner
+//     }
+//     return inner
+
+// }
+
+// console.log(sum(10)(20)(30)(40)())
+
+//Q.Remove falsy value
+
+// const arr = [0,null,undefined,'',5]
+
+// function removeFalsy(arr){
+
+//     const result = arr.filter(val=>val)
+//     return result
+
+//     const result = [];
+
+//     arr.reduce((acc,val)=>{
+//         if(val){
+//             result.push(val)
+//         }
+//     })
+
+//     return result
+
+// }
+
+// console.log(removeFalsy(arr))
+
+//Q. Factorial of a number
+
+// function factorial(n){
+
+//     if(n===0) return 1;
+
+//     let fact = 1;
+
+//     let result = [];
+
+//     for(let i=1;i<=n;i++){
+//         result.push(fact*=i)
+//     }
+//     return result
+// }
+
+// console.log(factorial(5))
+
+// function fact(n){
+
+//     let fact = 1;
+
+//     if(n===0) return 1
+
+//     for(let i=1;i<=5;i++){
+//         fact = fact*i
+//     }
+
+//     return fact;
+
+// }
+// console.log(fact(0))
+
+// function facto(n){
+
+//     if(n===0) return console.log(`factorial of ${n} is 1`)
+
+//     let fact = 1;
+
+//     for(let i=1;i<=n;i++){
+//         console.log(`factorial of ${i} is ${fact=fact*i}`)
+//     }
+
+// }
+
+// facto(5)
+
+// // console.log(facto(0))
+
+// function fact(n){
+
+//     if(n===0) return 1;
+//     return n*fact(n-1)
+
+// }
+// console.log(fact(5))
+
+//Q. Fibonacci series
+
+// function fib(n){
+//     if(n<2) return n;
+//     return fib(n-1) + fib(n-2)
+// }
+
+// function printFib(n){
+//     const result = [];
+//     for(let i=0;i<n;i++){
+//         // console.log(fib(i))
+//         result.push(fib(i))
+//     }
+
+//     return result
+// }
+
+// console.log(printFib(5))
+
+// function fib(n){
+//     const result = [];
+
+//     let a=0,b=1;
+
+//     for(let i=0;i<n;i++){
+//         result.push(a);
+//         [a,b] = [b,a+b]
+//     }
+
+//     return result
+// }
+
+// console.log(fib(5))
+
+//Q.find all prime number in an array.
+
+// function primeNumInArr(arr){
+
+//     return arr.filter((num)=>{
+//         if(num<=1) return false;
+//         for(let i=2;i<=Math.sqrt(num);i++){
+//             if(num%i === 0) return false
+//         }
+//         return true
+//     })
+
+// }
+
+// console.log(primeNumInArr([1,2,20,22,10,30,27,35,19,85]))
+
+//Q.Print all prime numbers in a given range.
+
+// function isPrime(num){
+
+//     if(num<=1) return false
+//     for(let i=2;i<=Math.sqrt(num);i++){
+//         if(num%i===0) return false
+//     }
+//     return true
+// }
+
+// function getPrime(start,end){
+//     const primes = [];
+
+//     for(let i=start;i<=end;i++){
+//         if(isPrime(i)){
+//             primes.push(i)
+//         }
+//     }
+
+//     return primes;
+// }
+
+// console.log(getPrime(1,25))
+
+//Q.Find All Prime Numbers up to Nth.
+
+// function isPrime(num){
+//     if(num<=1) return false
+
+//     for(let i=2;i<=Math.sqrt(num);i++){
+//         if(num%i===0) return false
+//     }
+//     return true
+// }
+
+// function getPrime(n){
+//     let result = [];
+
+//     for(let i=2;i<=n;i++){
+//         if(isPrime(i)){
+//             result.push(i)
+//         }
+//     }
+
+//     return result
+// }
+
+// console.log(getPrime(50))
+
+//Q.Find the sum of first 'N' natural numbers.
+
+// function sumOfNatural(n){
+//     return (n*(n+1))/2
+// }
+
+// console.log(sumOfNatural(10))
+
+// function sum(n){
+
+//     let sum = 0;
+
+//     for(let i=1;i<=n;i++){
+//         sum = sum+i
+//     }
+//     return sum;
+// }
+
+// console.log(sum(10))
+
+// function sumNatural(n){
+//     if(n===0) return 0
+//     return n+sumNatural(n-1)
+// }
+
+// console.log(sumNatural(10))
+
+//Q.Polyfill of bind
+
+// function printName(city1,city2){
+//     console.log(`${this.firstName} ${this.lastName} lives in ${city1} and ${city2}`)
+// }
+
+// const person = {
+//     firstName : 'sushil',
+//     lastName : 'suman'
+// }
+
+// Function.prototype.myBind = function(obj,...args1){
+//     let myFun = this
+
+//     return function(...args2){
+//         return myFun.apply(obj,[...args1,...args2])
+//     }
+// }
+
+// const result = printName.myBind(person,'Noida')
+// result('Gurgaon');
+
+//Q. convert numbers in roman number.
+
+// function convertToRoman(num){
+
+//     const roman = {C:100,XC:90,L:50,XL:40,IX:9,V:5,IV:4,I:1}
+
+//     let result = ''
+
+//     for(let key in roman){
+//         while(num>=roman[key]){
+//             result+=key
+//             num-=roman[key]
+//         }
+//     }
+
+//     return result
+// }
+
+// console.log(convertToRoman(8))
+
+//Q. Merge array of object by id.
+
+// const array1=[{id:1, x:5, y:7},{id:2, x:5, y:7},{id:3,x:5, y:7}];
+// const array2=[{id:3, x:9, y:11},{id:4,x:5, y:7},{id:5,x:5, y:7}];
+
+// let mergedArray = [...array1,...array2].reduce((acc,obj)=>{
+//     let existing = acc.find(item => item.id === obj.id)
+
+//     if(existing){
+//         existing.x = Math.max(existing.x,obj.x)
+//         existing.y = Math.max(existing.y,obj.y)
+//     }else{
+//         acc.push(obj)
+//     }
+//     return acc
+// },[])
+
+// console.log(mergedArray)
+
+//Q. create counter function
+
+// function Y(){
+//     let count = 0
+
+//     function X(){
+//         count+=1
+//         console.log(count)
+//     }
+//     return X
+// }
+
+// const counter = Y();
+// counter()
+// counter()
+// counter();
+
+//Q. create increment,decremnet counter in one function.
+
+// function counter(){
+//     let count = 0;
+
+//     return{
+//         increment : function(){
+//             count = count+1
+//         },
+//         decrement : function(){
+//             count = count-1
+//         },
+//         print : function(){
+//             console.log(count)
+//         }
+//     }
+// }
+
+// const result = counter();
+// result.increment()
+// result.increment()
+// result.decrement()
+// result.print()
+
+//Q. Print the name of students below the avg marks.
+// const students = [
+//   { id: 1, name: "Sushil", marks: 85 },
+//   { id: 2, name: "Amit", marks: 92 },
+//   { id: 3, name: "Priya", marks: 76 },
+//   { id: 4, name: "Ravi", marks: 65 },
+//   { id: 5, name: "Neha", marks: 88 },
+//   { id: 6, name: "Karan", marks: 55 },
+//   { id: 7, name: "Meena", marks: 95 },
+//   { id: 8, name: "Arjun", marks: 70 },
+//   { id: 9, name: "Rohit", marks: 82 },
+//   { id: 10, name: "Simran", marks: 60 }
+// ];
+
+// function printName(students){
+
+//     const totalMarks = students.reduce((acc,curVal)=>{
+//         return acc = acc+curVal.marks
+//     },0)
+
+//     const avgMarks = totalMarks/students.length;
+//     console.log(avgMarks)
+
+//     let result = [];
+
+//     students.filter((ele)=>{
+//         if(ele.marks<avgMarks){
+//             result.push(ele.name,ele.marks)
+//         }
+//     })
+
+//     return result;
+
+
+// }
+
+// console.log(printName(students))
+
+//Q. print the employee name,salary having nth largest salary.
+
+// const employees = [
+//   { id: 1, name: "Sushil", salary: 50000 },
+//   { id: 2, name: "Amit", salary: 60000 },
+//   { id: 3, name: "Priya", salary: 75000 },
+//   { id: 4, name: "Ravi", salary: 55000 },
+//   { id: 5, name: "Neha", salary: 80000 }
+// ];
+
+// function printEmployee(employees,n){
+
+//     let result = [];
+
+//     const sortedResult = employees.sort((a,b)=>b.salary-a.salary)
+
+//     const emp = sortedResult[n-1]
+
+//     return {name:emp.name,salary:emp.salary}
+// }
+
+// console.log(printEmployee(employees,3))
+
+// function employee(employees,target){
+
+//     let result = [];
+
+//     for(let i=0;i<employees.length;i++){
+//         if(employees[i].id===target){
+//             result.push(employees[i].name,employees[i].salary)
+//         }
+//     }
+
+//     return result
+// }
+
+// console.log(employee(employees,3))
 
 /**
  * 
