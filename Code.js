@@ -1288,17 +1288,351 @@
 
 // console.log(employee(employees,3))
 
+/*-------------------------------------------------------------------------------------------------------------------*/
+
 /**
  * 
  * String
  * 
  */
 
+//Q.1 Create Hashtag from String
+
+// function createHashTag(str){
+
+//     let result = '#'
+//     let words = str.split(' ')
+
+//     for(let i=0;i<words.length;i++){
+//         result = result+words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
+//     }
+
+//     return result;
+
+// }
+
+// console.log(createHashTag('javascript is awesome'))
+
+//Q.2 convert first letter of string capital
+
+// function toTitlecase(str){
+
+//     let words = str.split(' ');
+
+//     // let result = words.map(word=>word.charAt(0).toUpperCase()+ word.slice(1).toLowerCase());
+
+//     let result = words.map((word)=>{
+//         return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+//     })
+
+//     return result.join(' ')
+// }
+
+// console.log(toTitlecase('hello sushil'))
+
+//Q.3 Reverse string.
+
+// function reverseStr(str){
+
+//     let result = '';
+
+//     for(let i=str.length-1;i>=0;i--){
+//         result = result+str[i]
+//     }
+
+//     return result;
+
+    //    const result = str.split('').reverse().join('')
+    //    return result;
+
+// }
+
+// console.log(reverseStr('hello world'))
+
+// function reverseString(str){
+
+//     let result = str.split(' ').map(word=>word.split('').reverse().join('')).join(' ')
+
+//     return result;
+// }
+
+// console.log(reverseString('hello world'))
+
+//Q To find longest word in a sentence.
+
+// const str = 'I love javascript coding';
+
+// function longestWord(str){
+
+//     let words = str.split(' ')
+//     let longest = "";
+
+//     for(let i=0;i<words.length;i++){
+//         if(words[i].length>longest.length){
+//             longest=words[i]
+//         }
+//     }
+
+//     for(let word of words){
+//         if(word.length>longest.length){
+//             longest = word
+//         }
+//     }
+
+//     return longest;
+
+// }
+
+// console.log(longestWord(str))
+
+//Q. To check paalindrone.
+
+// function palindrone(str){
+
+//     let newStr = str.toLowerCase();
+//     let reverStr = newStr.split('').reverse().join('')
+
+//     return newStr===reverStr;
+// }
+
+// console.log(palindrone('momo'))
+// console.log(palindrone("moom"))
+
+//Q. To check anagrams.
+
+// function checkAnagrams(str1,str2){
+
+//     let newStr1 = str1.toLowerCase().split('').reverse().sort().join('')
+//     let newStr2 = str2.toLowerCase().split('').reverse().sort().join('')
+
+//     if(newStr1===newStr2) return `Anagrams`
+//     return `Anagrams not exit`
+
+// }
+
+// console.log(checkAnagrams('Listen','silent'))
+
+//Q. Count no. of vowels and consonent in a string.
+
+// const str = 'Hello World'
+
+// function countVAndC(str){
+
+//     const vowel = 'AEIOUaeiou';
+//     let consCount = 0;
+//     let vowCount = 0;
+//     // let words = str.split(' ')
+
+//     for(let word of str){
+//         if(vowel.includes(word)){
+//             vowCount++;
+//         }else{
+//             consCount++;
+//         }
+//     }
+
+//     return {vowels : vowCount,consonent :consCount }
+// }
+
+// console.log(countVAndC(str))
+
+//Q. Count no. of character
+
+// const str = 'Hello worLd'
+
+// function countNoOfChar(str){
+
+
+//     let str1 = str.split() //{'Hello worLd' : 1}
+
+//     let newStr = str.split('');
+
+//     let count = {};
+
+//     for(let word of newStr){
+//         count[word] = (count[word] || 0) +1
+//     }
+
+//     return count;
+
+// }
+
+// console.log(countNoOfChar(str))
+
+//Q.
+
+// let str = "sabyasachi, Techno Exponent Techno I sabyasachi"
+
+// function countWord(str){
+
+//     let words = str.replace(/,/g,'').split(' ')
+
+//     let wordCount = {};
+
+//     words.forEach((word)=>{
+//         if(wordCount[word]){
+//             wordCount[word]++
+//         }else{
+//             wordCount[word] = 1
+//         }
+//     })
+
+//     for(let word in wordCount){
+//         console.log(`${word}-${wordCount[word]}`)
+//     }
+// }
+// countWord(str)
+// console.log(countWord(str))
+
+// function wordCount(str){
+
+//     let words = str.replace(/,/g,'').split(' ')
+
+//     let count = {};
+
+//     for(let word of words){
+//         count[word] = (count[word] || 0) +1
+//     }
+
+//     return count
+// }
+
+// console.log(wordCount(str))
+
+//Q. To find first non-repeating character
+
+// const str = 'hello hello world'
+
+// function findNonRepeat(str){
+
+//     const words = str.split('')
+
+//     const count = {};
+
+//     for(let word of words){
+//         count[word] = (count[word] || 0) +1
+//     }
+
+//     for(let char in count){
+//         if(count[char] === 1){
+//             return char
+//         }
+//     }
+// }
+
+// console.log(findNonRepeat(str))
+
+//Q. To first repeating char
+
+// function findRepeatChar(str){
+
+//     let seen = new Set();
+
+//     for(let char of str){
+//         if(seen.has(char)){
+//             return char
+//         }
+//         seen.add(char)
+//     }
+
+//     return null
+// }
+
+// console.log(findRepeatChar(str))
+
+//Q. To check if string contains unique character.
+
+// function checkStrHasUniChar(str){
+
+//     let seen = new Set();
+
+//     for(let char of str){
+//         if(seen.has(char)){
+//             return false;
+//         }
+//         seen.add(char)
+//     }
+//     return true
+// }
+
+// console.log(checkStrHasUniChar("World"))
+// console.log(checkStrHasUniChar("Hello"))
+
+//Q. Input :- aaabbcccc , Output : a3b2c4
+
+// function countChar(str){
+
+//     let result = '';
+//     let count = 1;
+
+//     for(let i=0;i<str.length;i++){
+//         if(str[i] === str[i+1]){
+//             count++
+//         }else{
+//             result = result+str[i]+count;
+//             count = 1
+//         }
+//     }
+//     return result;
+// }
+
+// console.log(countChar("aaabbcccc"))
+// console.log(countChar('aaaaaaaaaaaaa'))
+// console.log(countChar('ddfsda111aded223')) // giving wrong output
+
+//Q. Input :- programming ,  Output :- progaming
+
+// function removeRepeatChar(str){
+
+//     let seen = new Set();
+//     let result = '';
+
+//     for(let char of str){
+//         if(!seen.has(char)){
+//             seen.add(char)
+//             result+=char
+//         }
+//     }
+//     return result
+// }
+
+// console.log(removeRepeatChar("programming"))
+
+/***************************************************************************************************************** */
+
 /**
  * 
  * Object
  * 
  */
+
+//Q.Q.1 Implement a function that uses recursion to compute the sum of all numbers in a nested object. If null, string, or undefined skip the addition process.
+
+//  Input : {a:1,b:{c:2,d:3},e:4}
+//  Output : 10
+//  Input : {a:1,b:{c:2,d:3},e:{f:"67",g:undefined,h:10}}
+//  Output : 16
+
+// const obj =  {a:1,b:{c:2,d:3},e:4}
+// const obj1 = {a:1,b:{c:2,d:3},e:{f:"67",g:undefined,h:10}}
+
+// function sumOfObj(obj){
+
+//     let sum = 0;
+
+//     for(let key in obj){
+//         let value = obj[key]
+
+//         if(typeof value === "number"){
+//             sum = sum + value;
+//         }else if(typeof value === "object" && value !== null){
+//             sum = sum + sumOfObj(value);
+//         }
+//     }
+//     return sum;
+// }
+
+// console.log(sumOfObj(obj))
 
 /**
  * 
