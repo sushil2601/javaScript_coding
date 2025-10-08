@@ -1349,3 +1349,37 @@ const students = [
 # Check if a student with id = 5 exists.
 
 # Increase everyone’s marks by 5 bonus points.
+
+## Q.3 find the position of a Fibonacci number (like 6) using memoization and closure so that repeated calls use cached results.
+Ans :-
+
+    function createFibFinder() {
+        const memo = {}; // cache for memoization
+
+        function fib(n) {
+            if (n <= 1) return n;
+            if (memo[n]) return memo[n]; // use cached value
+            memo[n] = fib(n - 1) + fib(n - 2);
+            return memo[n];
+        }
+
+        function findPosition(target) {
+            // generate Fibonacci numbers until we exceed or match target
+            for (let i = 0; ; i++) {
+                const val = fib(i);
+                if (val === target) return i;  // found position
+                if (val > target) return -1;   // not in Fibonacci series
+            }
+        }
+
+        return findPosition; // closure retains access to `memo`
+    }
+
+    // usage
+    const findPosition = createFibFinder();
+
+    console.log(findPosition(6));   // Output: 5
+    console.log(findPosition(13));  // Output: 7
+    console.log(findPosition(21));  // Output: 8
+    console.log(findPosition(10));  // Output: -1 (not Fibonacci)
+
