@@ -11,9 +11,26 @@ Ans :-
 
         return result;
 
+        //Using Map 
+
+             const result = '#'+str.split(' ').map(ele=>ele.charAt(0).toUpperCase()+ele.slice(1).toLowerCase()).join('')
+    
+            return result
+
+        //Using reducd
+
+            const result = '#' + str.split(' ').reduce((acc,word)=>{
+                const formatWord = word.charAt(0).toUpperCase()+word.slice(1).toLowerCase()
+                
+                return acc+formatWord
+            })
+
+            return result
+
     }
 
-    console.log(createHashTag('javascript is awesome'))
+    console.log(createHashTag('javascript is awesome')) //#JavascriptIsAwesome
+
 
 ## Q.2 convert first letter of string capital.
 
@@ -147,7 +164,7 @@ Ans :-
 
     console.log(countVAndC(str))
 
-## Q.8 Count no. of character.
+## Q.8.1 Count no. of character.
 Ans :-
         const str = 'Hello worLd'
 
@@ -169,6 +186,35 @@ Ans :-
         }
 
         console.log(countNoOfChar(str))
+
+## Q.8.2 Count only unique consonent and vowel
+Ans :-
+
+        const str = 'I love javaScript'
+
+        function count(str){
+            
+            const vowels = 'AEIOUaeiou'
+            
+            let vow = 0;
+            let cons = 0;
+            
+            // const words = [...new Set(str.trim().split(''))]
+            const words = [...new Set(str.replace(/[^a-zA-Z]/g, '').split(''))];
+            console.log(words)
+            
+            words.map((ele)=>{
+                if(vowels.includes(ele)){
+                    vow++
+                }else{
+                    cons++
+                }
+            })
+            
+            return {vowel : vow , consonent : cons}
+        }
+
+        console.log(count(str))
 
 
 ## Q.9 Input :- let str = "sabyasachi, Techno Exponent Techno I sabyasachhi"
@@ -315,9 +361,107 @@ Ans :-
 
     console.log(removeRepeatChar("programming")) //output :- progaming
 
+## Q.16 I/P :- 'a_b__c_d' O/P :- a1b23c4d
+Ans :-
+
+        const str = 'a_b__c_d'
+
+        function fillPlace(str){
+            
+            let result = '';
+            let count = 1;
+            
+            for(let char of str){
+                if(char === '_'){
+                    result = result+count++
+                }else{
+                    result = result+char
+                }
+            }
+            
+            return result
+        }
+
+        console.log(fillPlace(str))
+
+## Q.17 a1 :- 'abcde', b1 = '123456' , O/p:- a1b2c3d4e56
+Ans :-
+
+        function formatString(){
+    
+            const a1 = 'abcde'
+            const b1 = '123456'
+            let result = ''
+            
+            for(let i=0;i<Math.max(a1.length,b1.length);i++){
+                if(i<a1.length){
+                    result = result + a1[i]
+                }
+                if(1<b1.length){
+                    result = result + b1[i]
+                }
+            }
+            
+            return result
+        }
+
+        console.log(formatString())
+
+## Q.18.1 I/p :- a1 = 'abcdef' , b1 = '123456' , O/P :- a1b23c456de
+Ans :-
+
+        function formatString(){
+    
+            const a1 = 'abcdef'
+            const b1 = '123456789'
+            let result = '';
+            let index = 0;
+            
+            const strLength = Math.max(a1.length,b1.length)
+            
+            for(let i=0;i<a1.length;i++){
+                
+                result = result + a1[i]
+                
+                for(let j=0;j<=i;j++){
+                    if(index<b1.length){
+                        result = result + b1[index++] //b1[j] -> a1b12c123
+                    }
+                }
+            }
+            
+            return result
+        }
+
+        console.log(formatString())
+
+## Q.18.2 I/P :- a1 = 'abcdef' O/P :- a1b23c456d78910e1112131415
+Ans :-
+
+        function formatString(){
+    
+            const a1 = 'abcdef'
+            let result = '';
+            let index = 1;
+            
+            for(let i=0;i<a1.length;i++){
+                
+                result = result + a1[i]
+                
+                for(let j=0;j<=i;j++){
+                    result = result+index++
+                }
+            }
+            
+            return result
+        }
+
+        console.log(formatString())
+
+
 #### DSA ####
 
-## Q.15 
+## Q.
 
 
 

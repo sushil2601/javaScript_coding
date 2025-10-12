@@ -147,11 +147,12 @@ Ans:-
     function createFibonacciFinder(){
 
         let cache = {};
-        let series = [];
+        let series = [0,1];
 
         function generateFib(n){
 
-            if (n <= 1) return series[n] = n            
+            if (series[n] !== undefined) return series[n];
+            
             const result = generateFib(n - 1) + generateFib(n - 2);
             
             series[n] = result; 
