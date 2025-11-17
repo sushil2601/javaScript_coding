@@ -458,6 +458,31 @@ Ans :-
 
         console.log(formatString())
 
+## Q.19 Replace vowel with special character
+Ans :-
+
+        const str = 'sushil'
+
+        function replaceVowel(str){
+            let result = '';
+            let vowels = 'AEIOUaeiou';
+            const str1 = str.split('')
+            for(let i=0;i<str1.length;i++){
+                let char = str1[i];
+                if(vowels.includes(char)){
+                    char = '#';
+                    result = result+char
+                }else{
+                    result = result+char
+                }
+                
+            }
+            
+            return result
+        }
+
+        console.log(replaceVowel(str))
+
 
 #### DSA ####
 

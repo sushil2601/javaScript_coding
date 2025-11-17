@@ -1298,6 +1298,23 @@ const employees = [
 ];
 
 # Find the employee with the highest salary.
+Ans :- 
+
+        function findHighestSalary(employees){
+    
+            let salary = 0;
+            let name = ''
+            for(let emp of employees){
+                if(emp.salary>salary){
+                    salary = emp.salary
+                    name = emp.name
+                }
+            }
+            
+            return {name,salary};
+        }
+
+        console.log(findHighestSalary(employees))
 
 # Find the employee with the lowest salary.
 
